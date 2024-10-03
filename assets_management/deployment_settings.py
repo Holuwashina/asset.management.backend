@@ -27,7 +27,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://asset-management-backend-yib3.onrender.com'
+    'http://localhost:3000'
 ]
 
 STORAGES = {
