@@ -27,7 +27,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://asset-management-frontend-7uuzdcu53-holuwashinas-projects.vercel.app/',
+    'https://asset-management-frontend-7uuzdcu53-holuwashinas-projects.vercel.app',
+    'http://asset-management-frontend-7uuzdcu53-holuwashinas-projects.vercel.app',
     'http://localhost:3000'
 ]
 
