@@ -3,11 +3,16 @@ import dj_database_url
 from .settings import * 
 from .settings import BASE_DIR
 
+# Ensure you have allowed hosts set correctly
 ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
-CSRF_TRUSTED_ORIGINS = ['https://'+os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
 
 DEBUG = False
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# Static files settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where collectstatic will collect static files
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -26,22 +31,20 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 STORAGES = {
-    "default":{
-        "BACKEND" : "django.core.files.storage.FileSystemStorage",
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND" : "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
-
 }
 
 DATABASES = {
     'default': dj_database_url.config(
-        default= os.environ['DATABASE_URL'], 
+        default=os.environ['DATABASE_URL'], 
         conn_max_age=600
     )
 }
-
 
 LOGGING = {
     'version': 1,
@@ -60,8 +63,6 @@ LOGGING = {
         },
     },
 }
-
-
 
 ADMINS = [("CBI Analytics", "YOUREMAIL@EMAIL.com")]
 
