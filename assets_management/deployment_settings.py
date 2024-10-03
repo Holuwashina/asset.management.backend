@@ -27,7 +27,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://render-deploy-tutorial-reactjs-code.onrender.com'
+    'https://asset-management-backend-yib3.onrender.com'
 ]
 
 STORAGES = {
